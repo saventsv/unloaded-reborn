@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://0kpmyopuasrf"]
+
+[ext_resource type="Texture2D" uid="uid://d3ufq3ofv3hpm" path="res://assets/TreesPack/trees.png" id="1_avsvi"]
+[ext_resource type="Script" uid="uid://basxek354lc6d" path="res://scripts/tree.gd" id="1_vplca"]
+[ext_resource type="Script" uid="uid://c5parmb612hob" path="res://scripts/hitbox.gd" id="3_viusy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16vjj"]
+atlas = ExtResource("1_avsvi")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_16vjj"]
+radius = 4.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_16vjj"]
+size = Vector2(6, 14)
+
+[node name="Tree" type="StaticBody2D" unique_id=449366130]
+script = ExtResource("1_vplca")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=341968812]
+texture = SubResource("AtlasTexture_16vjj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2086060945]
+visible = false
+position = Vector2(0, 7)
+shape = SubResource("CircleShape2D_16vjj")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1603589853]
+position = Vector2(0, 7)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("3_viusy")
+metadata/_custom_type_script = "uid://c5parmb612hob"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1013117399]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_16vjj")

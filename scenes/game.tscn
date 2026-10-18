@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://die48wl8j7ghj"]
+
+[ext_resource type="PackedScene" uid="uid://dsowds1ybwli8" path="res://scenes/player.tscn" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://0kpmyopuasrf" path="res://scenes/tree.tscn" id="2_yqjtg"]
+
+[node name="Game" type="Node2D" unique_id=3249992]
+
+[node name="Tree" parent="." unique_id=61836500 instance=ExtResource("2_yqjtg")]
+position = Vector2(92, 8)
+
+[node name="Player" parent="." unique_id=40343350 instance=ExtResource("1_uwrxv")]
+position = Vector2(0, -34)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1057090020]
+zoom = Vector2(4, 4)
