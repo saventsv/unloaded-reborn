@@ -21,7 +21,6 @@ script = ExtResource("1_vplca")
 texture = SubResource("AtlasTexture_16vjj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2086060945]
-visible = false
 position = Vector2(0, 7)
 shape = SubResource("CircleShape2D_16vjj")
 

@@ -9,6 +9,9 @@ enum PlayerDirection {
 @onready var hurtbox_collision_shape: CollisionShape2D = $Hurtbox/CollisionShape2D
 @onready var attack_cooldown: Timer = $AttackCooldown
 @onready var attack_duration: Timer = $AttackDuration
+
+@export var inventory: Inventory
+
 var hurtbox_offset: Vector2
 var can_attack: bool
 

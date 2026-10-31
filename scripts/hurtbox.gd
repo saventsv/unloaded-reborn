@@ -9,9 +9,8 @@ func _init() -> void:
 	
 
 func _ready() -> void:
-	# TODO figure out why it thinks the tree that it is detecting is somehow the player
 	area_entered.connect(
 		func(area: Area2D) -> void:
-			if area.name == "Hitbox" and area.owner.has_method("take_damage"):
+			if area is Hitbox and area.owner.has_method("take_damage"):
 				area.owner.take_damage(damage)
 	)

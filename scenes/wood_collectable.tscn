@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cfn1kql7npjcj"]
+
+[ext_resource type="Script" uid="uid://cem5r2jkl44sg" path="res://scripts/wood_collectable.gd" id="1_hy74b"]
+[ext_resource type="Texture2D" uid="uid://cy4p7e4px44yp" path="res://assets/sprites/wood.png" id="1_mc31f"]
+[ext_resource type="Script" uid="uid://dcuafkplfanxb" path="res://scripts/collectable.gd" id="2_hy74b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0qalc"]
+radius = 16.124516
+
+[node name="WoodCollectable" type="Node2D" unique_id=1343376314]
+script = ExtResource("1_hy74b")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1360870860]
+texture = ExtResource("1_mc31f")
+
+[node name="Collectable" type="Area2D" parent="." unique_id=802182151]
+script = ExtResource("2_hy74b")
+metadata/_custom_type_script = "uid://dcuafkplfanxb"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collectable" unique_id=181920528]
+shape = SubResource("CircleShape2D_0qalc")

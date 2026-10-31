@@ -2,8 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://dphtcqlt5sent" path="res://assets/sprites/knight.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://lltskra6yaf2" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Resource" uid="uid://d067t2mwg5p8l" path="res://inventory/player_inventory.tres" id="2_tuyoq"]
 [ext_resource type="Script" uid="uid://drvjtpep4k0hd" path="res://scripts/hurtbox.gd" id="3_dqkch"]
 [ext_resource type="Script" uid="uid://c5parmb612hob" path="res://scripts/hitbox.gd" id="4_dqkch"]
+[ext_resource type="Script" uid="uid://cbgjveodg3lh6" path="res://scripts/collection_area.gd" id="5_qlg0r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("1_3vyb7")
@@ -50,12 +52,15 @@ size = Vector2(9.5, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qalc"]
 size = Vector2(13, 20)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_0qalc"]
+radius = 25.079872
+
 [node name="Player" type="CharacterBody2D" unique_id=40343350]
 script = ExtResource("1_g2els")
+inventory = ExtResource("2_tuyoq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1342936360]
 sprite_frames = SubResource("SpriteFrames_0qalc")
-flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1307379015]
 position = Vector2(0, 7)
@@ -87,6 +92,14 @@ one_shot = true
 [node name="AttackDuration" type="Timer" parent="." unique_id=518014204]
 wait_time = 0.1
 one_shot = true
+
+[node name="CollectionArea" type="Area2D" parent="." unique_id=621594483]
+script = ExtResource("5_qlg0r")
+metadata/_custom_type_script = "uid://cbgjveodg3lh6"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectionArea" unique_id=1842784157]
+position = Vector2(0, 5)
+shape = SubResource("CircleShape2D_0qalc")
 
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
 [connection signal="timeout" from="AttackDuration" to="." method="_on_attack_duration_timeout"]
